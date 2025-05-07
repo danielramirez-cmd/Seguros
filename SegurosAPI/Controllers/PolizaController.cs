@@ -68,7 +68,7 @@ namespace SegurosAPI.Controllers
 
         #region "Actualizar Catalogo"
         [HttpPut("Actualizar")]
-        public async Task<ActionResult<PolizaModel>> UpdateCatalogo([FromBody] PolizaDTO poliza)
+        public async Task<ActionResult<PolizaModel>> UpdateCatalogo([FromBody] PolizaUpdateDTO poliza)
         {
             try
             {

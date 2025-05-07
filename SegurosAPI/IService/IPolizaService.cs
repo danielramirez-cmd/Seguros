@@ -8,7 +8,7 @@ namespace SegurosAPI.IService
         Task<PolizaDTO> GetPolizaById(int id);
 
         Task AddPoliza(PolizaDTOCreate poliza);
-        Task UpdatePoliza(PolizaDTO poliza);
+        Task UpdatePoliza(PolizaUpdateDTO poliza);
         Task DeletePoliza(int id);
 
 

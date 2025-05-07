@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Seguros.IServices;
 using Seguros.Services;
 using SegurosAPI.DTOs;
@@ -11,12 +12,15 @@ namespace Seguros.Controllers
     {
 
         private readonly IPolizaServices _polizaServices;
+        private readonly ICatalogosServices _catalogosServices;
 
-        public PolizaController(IPolizaServices polizaServices)
+
+        public PolizaController(IPolizaServices polizaServices, ICatalogosServices catalogosServices)
         {
             // Inyección de dependencias
             string baseurl = "https://localhost:7028";
             _polizaServices = polizaServices;
+            _catalogosServices = catalogosServices;
         }
 
         public async Task<IActionResult> Index()
@@ -25,8 +29,12 @@ namespace Seguros.Controllers
             return View(Lista);
         }
 
-        public IActionResult Create()
+        public async Task <IActionResult> Create()
         {
+            PolizaDTO polizaDTO = new PolizaDTO();
+            var categorias = await _catalogosServices.GetAllCatalogo();
+            ViewBag.Tipo = new SelectList(categorias, "Id", "Tipo");
+
             return View();
         }
 
@@ -46,6 +54,9 @@ namespace Seguros.Controllers
             {
                 TempData["ErrorMessage"] = $"Hubo un error al agregar la poliza";
             }
+            PolizaDTO polizaDTO = new PolizaDTO();
+            var categorias = await _catalogosServices.GetAllCatalogo();
+            ViewBag.Tipo = new SelectList(categorias, "Id", "Tipo");
             return View(poliza);
         }
 
@@ -65,6 +76,11 @@ namespace Seguros.Controllers
 
         public async Task<IActionResult> Edit(int id)
         {
+           
+            var categorias = await _catalogosServices.GetAllCatalogo();
+            ViewBag.Tipo = new SelectList(categorias, "Id", "Tipo");
+
+
             PolizaDTO polizaDTO = await _polizaServices.GetPolizaById(id); // Llama al servicio para obtener la poliza por ID
             if (polizaDTO == null)
             {
@@ -92,6 +108,9 @@ namespace Seguros.Controllers
                 TempData["ErrorMessage"] = $"Hubo un error al actualizar la Poliza.";
             }
 
+            
+            var categorias = await _catalogosServices.GetAllCatalogo();
+            ViewBag.Tipo = new SelectList(categorias, "Id", "Tipo");
             return View(polizaDTO);
         }
 

@@ -71,7 +71,7 @@ namespace SegurosAPI.Service
         #endregion
 
         #region "Actualizar Catalogo"
-        public async Task UpdatePoliza(PolizaDTO poliza)
+        public async Task UpdatePoliza(PolizaUpdateDTO poliza)
         {
 
             await _context.Database.ExecuteSqlInterpolatedAsync($@"
