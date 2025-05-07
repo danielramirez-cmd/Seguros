@@ -1,0 +1,81 @@
+﻿@model SegurosAPI.DTOs.PolizaDTO
+@{
+    ViewData["Title"] = "Detalles de la Póliza";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg rounded">
+        <div class="card-header bg-secondary text-white text-center py-3">
+            <h3 class="mb-0">@ViewData["Title"]</h3>
+        </div>
+
+        <div class=" card-body py-4">
+
+            <div class="row mt-4">
+
+                <div class="col-md-6">
+                    <dl class="row">
+
+                        <dt class="col-5 fw-bold">@Html.DisplayNameFor(Model => Model.IdCatalogo)</dt>
+                        <dt class="col-7">@Html.DisplayFor(Model => Model.IdCatalogo)</dt>
+
+                        <dt class="col-5 fw-bold">@Html.DisplayNameFor(Model => Model.Nombre)</dt>
+                        <dt class="col-7">@Html.DisplayFor(Model => Model.Nombre)</dt>
+
+                        <dt class="col-5 fw-bold">@Html.DisplayNameFor(Model => Model.ApPaterno)</dt>
+                        <dt class="col-7">@Html.DisplayFor(Model => Model.ApPaterno)</dt>
+
+                        <dt class="col-5 fw-bold">@Html.DisplayNameFor(Model => Model.ApMaterno)</dt>
+                        <dt class="col-7">@Html.DisplayFor(Model => Model.ApMaterno)</dt>
+
+                        <dt class="col-5 fw-bold">@Html.DisplayNameFor(Model => Model.Edad)</dt>
+                        <dt class="col-7">@Html.DisplayFor(Model => Model.Edad)</dt>
+
+                        <dt class="col-5 fw-bold">@Html.DisplayNameFor(Model => Model.PaisNacimiento)</dt>
+                        <dt class="col-7">@Html.DisplayFor(Model => Model.PaisNacimiento)</dt>
+
+                        <dt class="col-5 fw-bold">@Html.DisplayNameFor(Model => Model.Genero)</dt>
+                        <dt class="col-7">@Html.DisplayFor(Model => Model.Genero)</dt>
+
+                        <dt class="col-5 fw-bold">@Html.DisplayNameFor(Model => Model.Correo)</dt>
+                        <dt class="col-7">@Html.DisplayFor(Model => Model.Correo)</dt>
+
+                        <dt class="col-5 fw-bold">@Html.DisplayNameFor(Model => Model.MontoPrima)</dt>
+                        <dt class="col-7">@Html.DisplayFor(Model => Model.MontoPrima)</dt>
+
+                        <dt class="col-5 fw-bold">@Html.DisplayNameFor(Model => Model.Telefono)</dt>
+                        <dt class="col-7">@Html.DisplayFor(Model => Model.Telefono)</dt>
+
+                        <dt class="col-5 fw-bold">@Html.DisplayNameFor(Model => Model.Estatus)</dt>
+                        <dt class="col-7">@Html.DisplayFor(Model => Model.Estatus)</dt>
+
+                        <dt class="col-5 fw-bold">@Html.DisplayNameFor(Model => Model.FechaInicio)</dt>
+                        <dt class="col-7">@Html.DisplayFor(Model => Model.FechaInicio)</dt>
+
+                        <dt class="col-5 fw-bold">@Html.DisplayNameFor(Model => Model.FechaFinal)</dt>
+                        <dt class="col-7">@Html.DisplayFor(Model => Model.FechaFinal)</dt>
+
+                    </dl>
+                </div>
+
+
+
+                <div class="text-center mt-4">
+                    <a href="@Url.Action("Index", "Poliza")" class="btn btn-outline-secondary px-4 py-2">
+                        <i class="fas fa-arrow-left"></i> Volver a la lista
+                    </a>
+
+                    <a href="@Url.Action("Edit", "Poliza", new { id = Model.Id })" class="btn btn-secondary text-white px-4 py-2 ms-2">
+                        <i class="fas fa-edit"></i> Editar
+                    </a>
+
+                    <a href="@Url.Action("ConfirmDelete", "Poliza", new { id = Model.Id })" class="btn btn-danger px-4 py-2 ms-2">
+                        <i class="fas fa-trash-alt"></i> Eliminar
+                    </a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

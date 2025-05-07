@@ -1,0 +1,112 @@
+﻿@model SegurosAPI.DTOs.PolizaDTOCreate
+
+@{
+    ViewData["Title"] = "Agregar Poliza de Seguro";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg rounded">
+        <div class="card-header bg-secondary text-white text-center py-3">
+            <h3 class="mb-0">@ViewData["Title"]</h3>
+        </div>
+
+
+        <div class="card-body p-4">
+            @*  @await Html.PartialAsync("_Alerts") *@
+
+            <form method="post" class="p-3">
+
+               
+               <div class="mb-3">
+                    <label asp-for="IdCatalogo" class="form-label fs-5 fw-semibold"></label>
+                    <input asp-for="IdCatalogo" type="text" class="form-control form-control-lg" placeholder="Seleccione" />
+                    <span asp-validation-for="IdCatalogo" class="text-danger small"></span>
+                </div>
+
+                
+                <div class="mb-3">
+                    <label asp-for="Nombre" class="form-label fa-5 fw-semibold"></label>
+                    <input asp-for="Nombre" type="text" class="form-control form-control-lg" placeholder="Nombre(s)" />
+                    <span asp-validation-for="Nombre" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="ApPaterno" class="form-label fa-5 fw-semibold"></label>
+                    <input asp-for="ApPaterno" type="text" class="form-control form-control-lg" placeholder="Apellido Paterno" />
+                    <span asp-validation-for="ApPaterno" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="ApMaterno" class="form-label fa-5 fw-semibold"></label>
+                    <input asp-for="ApMaterno" type="text" class="form-control form-control-lg" placeholder="Apellido Materno" />
+                    <span asp-validation-for="ApMaterno" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Edad" class="form-label fa-5 fw-semibold"></label>
+                    <input asp-for="Edad" type="text" class="form-control form-control-lg" placeholder="Edad" />
+                    <span asp-validation-for="Edad" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="PaisNacimiento" class="form-label fa-5 fw-semibold"></label>
+                    <input asp-for="PaisNacimiento" type="text" class="form-control form-control-lg" placeholder="Pais Nacimiento" />
+                    <span asp-validation-for="PaisNacimiento" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Genero" class="form-label fa-5 fw-semibold"></label>
+                    <input asp-for="Genero" type="text" class="form-control form-control-lg" placeholder="Genero" />
+                    <span asp-validation-for="Genero" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Correo" class="form-label fa-5 fw-semibold"></label>
+                    <input asp-for="Correo" type="email" class="form-control form-control-lg" placeholder="Email" />
+                    <span asp-validation-for="Correo" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="MontoPrima" class="form-label fa-5 fw-semibold"></label>
+                    <input asp-for="MontoPrima" type="number" class="form-control form-control-lg" placeholder="Monto de la prima" />
+                    <span asp-validation-for="MontoPrima" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Telefono" class="form-label fa-5 fw-semibold"></label>
+                    <input asp-for="Telefono" type="tel" class="form-control form-control-lg" placeholder="Télefono" />
+                    <span asp-validation-for="Telefono" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="FechaInicio" class="form-label fa-5 fw-semibold"></label>
+                    <input asp-for="FechaInicio" type="datetime" class="form-control form-control-lg" placeholder="Fecha de Inicio" />
+                    <span asp-validation-for="FechaInicio" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="FechaFinal" class="form-label fa-5 fw-semibold"></label>
+                    <input asp-for="FechaFinal" type="text" class="form-control form-control-lg" placeholder="Fecha Final" />
+                    <span asp-validation-for="FechaFinal" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Estatus" class="form-label fa-5 fw-semibold"></label>
+                    <input asp-for="Estatus" type="text" class="form-control form-control-lg" placeholder="Estatus" />
+                    <span asp-validation-for="Estatus" class="text-danger small"></span>
+                </div>
+
+
+                <div class="text-center mt-4">
+                    <a href="@Url.Action("Index", "Poliza")" class="btn btn-danger px-4 py-2">
+                        <i class="fas fa-arrow-left"></i> Cancelar
+                    </a>
+                    <button type="submit" class="btn btn-success px-4 py-2 ms-2">
+                        <i class="fas fa-save"></i> Guardar
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

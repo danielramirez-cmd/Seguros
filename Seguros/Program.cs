@@ -21,6 +21,9 @@ builder.Services.AddHttpClient();
 
 // servicios 
 builder.Services.AddScoped<ICatalogosServices, CatalogoServices>();
+builder.Services.AddScoped<IPolizaServices, PolizaServices>();
+
+
 
 var app = builder.Build();
 

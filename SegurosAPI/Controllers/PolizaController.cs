@@ -50,7 +50,7 @@ namespace SegurosAPI.Controllers
 
         #region "Agregar Catalogo"
         // POST api/<AssignmentController>
-        [HttpPost]
+        [HttpPost("Insertar")]
         public async Task<ActionResult<PolizaDTOCreate>> Create([FromBody] PolizaDTOCreate polizaDTO)
         {
             try
@@ -67,7 +67,7 @@ namespace SegurosAPI.Controllers
         #endregion
 
         #region "Actualizar Catalogo"
-        [HttpPut]
+        [HttpPut("Actualizar")]
         public async Task<ActionResult<PolizaModel>> UpdateCatalogo([FromBody] PolizaDTO poliza)
         {
             try
@@ -83,7 +83,7 @@ namespace SegurosAPI.Controllers
         #endregion
 
         #region "Eliminar Catalogo"
-        [HttpDelete("{id}")]
+        [HttpDelete("Eliminar/{id}")]
         public async Task<ActionResult<PolizaModel>> DeletePoliza(int id)
         {
             try

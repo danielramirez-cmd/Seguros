@@ -1,0 +1,86 @@
+﻿@model IEnumerable<SegurosAPI.DTOs.PolizaDTO>
+@{
+    ViewData["Title"] = "Catalogos de Seguros";
+    int num = 1;
+}
+
+<div class=" container mt-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="display-6">@ViewData["Title"]</h1>
+        <a href="@Url.Action("Create", "Poliza")" class="btn btn-success ">
+            <i class="fa-solid fa-plus"></i> Agregar nueva Poliza de Seguro
+        </a>
+    </div>
+
+    @*  @await Html.PartialAsync("_Alerts") *@
+
+    <div class=" table-responsive">
+        <table class="table table-striped table-hover table-bordered align-middle">
+            <thead class="table-dark">
+                @*  Encabezados  *@
+            <th>#</th>
+			<th>@Html.DisplayNameFor(m => m.IdCatalogo)</th>
+            <th>@Html.DisplayNameFor(m => m.Nombre)</th>
+            <th>@Html.DisplayNameFor(m => m.ApPaterno)</th>
+			<th>@Html.DisplayNameFor(m => m.ApMaterno)</th>
+			<th>@Html.DisplayNameFor(m => m.Edad)</th>
+			<th>@Html.DisplayNameFor(m => m.PaisNacimiento)</th>
+            <th>@Html.DisplayNameFor(m => m.Genero)</th>
+			<th>@Html.DisplayNameFor(m => m.Correo)</th>
+			<th>@Html.DisplayNameFor(m => m.Telefono)</th>
+			<th>@Html.DisplayNameFor(m => m.FechaInicio)</th>
+			<th>@Html.DisplayNameFor(m => m.FechaFinal)</th>
+			<th>@Html.DisplayNameFor(m => m.MontoPrima)</th>
+			<th>@Html.DisplayNameFor(m => m.Estatus)</th>
+            <th>Acciones</th>
+            </thead>
+
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@(num++)</td>
+                            <td>@item.IdCatalogo</td>
+                            <td>@item.Nombre</td>
+                            <td>@item.ApPaterno</td>
+                            <td>@item.ApMaterno</td>
+                            <td>@item.Edad</td>
+                            <td>@item.PaisNacimiento</td>
+                            <td>@item.Genero</td>
+							<td>@item.Correo</td>
+							<td>@item.Telefono</td>
+                            <td>@item.FechaInicio</td>
+                            <td>@item.FechaFinal</td>
+							<td>@item.MontoPrima</td>
+							<td>@item.Estatus</td>
+
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a href="@Url.Action("Edit", "Poliza", new { id = item.Id })" class="btn btn-sm btn-secondary m-2">
+                                        <i class="bi bi-pencil"></i> Editar
+                                    </a>
+                                    <a href="@Url.Action("Details", "Poliza", new { id = item.Id })" class="btn btn-sm btn-info m-2">
+                                        <i class="bi bi-eye"></i> Detalles
+                                    </a>
+
+                                    <a href="@Url.Action("ConfirmDelete", "Poliza", new { id = item.Id })" class="btn btn-sm btn-danger m-2">
+                                        <i class="bi bi-trash"></i> Eliminar
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="3" class="text-center">No hay categorias disponibles</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
