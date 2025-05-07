@@ -1,4 +1,4 @@
-﻿using SegurosAPI.Models;
+﻿
 
 namespace SegurosAPI.DTOs
 {

@@ -49,7 +49,7 @@ namespace SegurosAPI.Controllers
 
         #region "Agregar Catalogo"
         // POST api/<AssignmentController>
-        [HttpPost]
+        [HttpPost("Insertar")]
         public async Task<ActionResult<CatalogoDTOCreate>> Create([FromBody] CatalogoDTOCreate catalogoDTO)
         {
             try
