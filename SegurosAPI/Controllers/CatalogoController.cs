@@ -66,7 +66,7 @@ namespace SegurosAPI.Controllers
         #endregion
 
         #region "Actualizar Catalogo"
-        [HttpPut]
+        [HttpPut("Actualizar")]
         public async Task<ActionResult<CatalogoModel>> UpdateCatalogo([FromBody] CatalogoDTO catalogo)
         {
             try
@@ -82,7 +82,7 @@ namespace SegurosAPI.Controllers
         #endregion
 
         #region "Eliminar Catalogo"
-        [HttpDelete("{id}")]
+        [HttpDelete("Eliminar/{id}")]
         public async Task<ActionResult<CatalogoModel>> DeleteCatalogo(int id)
         {
             try

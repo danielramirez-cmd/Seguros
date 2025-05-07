@@ -96,6 +96,47 @@ namespace Seguros.Services
 
         #endregion
 
+        #region "Actualizar"
+        public async Task<bool> UpdateCatalogo(CatalogoDTO catalogo)
+        {
+            bool respuesta = false;
+
+            var cata = new HttpClient();
+            cata.BaseAddress = new Uri(_baseurl);
+            var content = new StringContent(JsonConvert.SerializeObject(catalogo), Encoding.UTF8, "application/json");
+            var response = await cata.PutAsync($"api/Catalogo/Actualizar/", content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                respuesta = true;
+            }
+
+            return respuesta;
+        }
+
+        #endregion
+
+        #region "Eliminar Catalogo"
+
+        public async Task<bool> DeleteCatalogo(int id)
+        {
+            bool respuesta = false;
+
+            var catalogo = new HttpClient();
+            catalogo.BaseAddress = new Uri(_baseurl);
+
+            var response = await catalogo.DeleteAsync($"api/Catalogo/Eliminar/{id}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                respuesta = true;
+            }
+
+            return respuesta;
+        }
+
+        #endregion
+
 
 
 
