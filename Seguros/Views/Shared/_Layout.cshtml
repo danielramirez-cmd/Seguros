@@ -8,17 +8,63 @@
     <!-- Bootstrap -->
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-    <!-- FontAwesome (opcional para íconos) -->
+    <!-- FontAwesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
 
-    <!-- Estilos personalizados -->
-    <link href="~/css/site.css" rel="stylesheet" asp-append-version="true" />
-    <link href="~/Seguros.styles.css" rel="stylesheet" asp-append-version="true" />
+    <!-- Animate.css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background: #f4f7fa;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .navbar {
+            background: linear-gradient(90deg, #0d6efd, #0a58ca);
+        }
+
+        .navbar .nav-link, .navbar-brand {
+            color: #fff !important;
+            font-weight: 500;
+        }
+
+        .navbar .nav-link:hover {
+            color: #cce5ff !important;
+        }
+
+        .alert-info {
+            background-color: #e0f3ff;
+            border-left: 6px solid #0d6efd;
+        }
+
+        main {
+            transition: all 0.3s ease-in-out;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        footer {
+            background: #e9ecef;
+        }
+
+        .footer a {
+            color: #0d6efd;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <!-- Navbar superior -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <nav class="navbar navbar-expand-lg shadow-sm">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-controller="Home" asp-action="Index">
                     <i class="fas fa-shield-alt me-2"></i>Seguros
@@ -30,24 +76,20 @@
                 <div class="collapse navbar-collapse" id="navbarContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="Index">
+                            <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "active" : "")" asp-controller="Home" asp-action="Index">
                                 <i class="fas fa-home me-1"></i>Inicio
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Catalogo" asp-action="Index">
-                                <i class="fas fa-user-shield me-1"></i>Catalogo
+                            <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Catalogo" ? "active" : "")" asp-controller="Catalogo" asp-action="Index">
+                                <i class="fas fa-book me-1"></i>Catálogo
                             </a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Poliza" asp-action="Index">
-                                <i class="fas fa-user-shield me-1"></i>Poliza
+                            <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Poliza" ? "active" : "")" asp-controller="Poliza" asp-action="Index">
+                                <i class="fas fa-file-contract me-1"></i>Póliza
                             </a>
                         </li>
-
-
-
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
@@ -57,17 +99,20 @@
 
     <!-- Contenido principal -->
     <div class="container mt-4">
-        <div class="alert alert-info text-center" role="alert">
-            ¡Bienvenido al Sistema de Gestión de Servicios de Seguros!
+        <div class="alert alert-info alert-dismissible fade show animate__animated animate__fadeInDown shadow-sm text-center" role="alert">
+            <h4 class="alert-heading mb-1">¡Bienvenido!</h4>
+            <p class="mb-0">Estás en el <strong>Sistema de Gestión de Servicios de Seguros</strong>. Gestiona tus pólizas y catálogos con eficiencia.</p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
         </div>
-        <main role="main" class="pb-3">
+
+        <main role="main" class="animate__animated animate__fadeIn">
             @RenderBody()
         </main>
     </div>
 
     <!-- Footer -->
-    <footer class="border-top footer text-muted mt-5">
-        <div class="container text-center py-3">
+    <footer class="footer border-top text-muted mt-5 py-3">
+        <div class="container text-center">
             &copy; 2025 - Seguros |
             <a asp-controller="Home" asp-action="Privacy">Privacidad</a>
         </div>
