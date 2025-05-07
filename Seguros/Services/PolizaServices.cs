@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using Newtonsoft.Json;
+using Seguros.DTOs;
 using Seguros.IServices;
 using SegurosAPI.DTOs;
 
@@ -95,7 +96,7 @@ namespace Seguros.Services
         #endregion
 
         #region "Actualizar"
-        public async Task<bool> UpdatePoliza(PolizaDTO poliza)
+        public async Task<bool> UpdatePoliza(PolizaUpdateDTO poliza)
         {
             bool respuesta = false;
 

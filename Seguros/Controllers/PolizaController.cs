@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Seguros.DTOs;
 using Seguros.IServices;
 using Seguros.Services;
 using SegurosAPI.DTOs;
@@ -92,7 +93,7 @@ namespace Seguros.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(PolizaDTO polizaDTO)
+        public async Task<IActionResult> Edit(PolizaUpdateDTO polizaDTO)
         {
             try
             {

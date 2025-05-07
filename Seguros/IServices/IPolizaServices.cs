@@ -1,4 +1,5 @@
-﻿using SegurosAPI.DTOs;
+﻿using Seguros.DTOs;
+using SegurosAPI.DTOs;
 
 namespace Seguros.IServices
 {
@@ -7,7 +8,7 @@ namespace Seguros.IServices
         Task<List<PolizaDTO>> GetAllPoliza();
         Task<PolizaDTO> GetPolizaById(int id);
         Task<bool> CreatePoliza(PolizaDTOCreate poliza);
-        Task<bool> UpdatePoliza(PolizaDTO poliza);
+        Task<bool> UpdatePoliza(PolizaUpdateDTO poliza);
         Task<bool> DeletePoliza(int id);
 
 
