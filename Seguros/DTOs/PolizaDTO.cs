@@ -7,6 +7,7 @@ namespace SegurosAPI.DTOs
 
         public int Id { get; set; }
         public int IdCatalogo { get; set; }
+        public string Tipo { get; set; }    
         public string Nombre { get; set; }
         public string ApPaterno { get; set; }
         public string ApMaterno { get; set; }

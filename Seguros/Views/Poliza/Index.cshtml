@@ -20,7 +20,7 @@
             <thead class="table-dark">
                 @*  Encabezados  *@
             <th>#</th>
-			<th>@Html.DisplayNameFor(m => m.IdCatalogo)</th>
+			<th>@Html.DisplayNameFor(m => m.Tipo)</th>
             <th>@Html.DisplayNameFor(m => m.Nombre)</th>
             <th>@Html.DisplayNameFor(m => m.ApPaterno)</th>
 			<th>@Html.DisplayNameFor(m => m.ApMaterno)</th>
@@ -43,7 +43,7 @@
                     {
                         <tr>
                             <td>@(num++)</td>
-                            <td>@item.IdCatalogo</td>
+                            <td>@item.Tipo</td>
                             <td>@item.Nombre</td>
                             <td>@item.ApPaterno</td>
                             <td>@item.ApMaterno</td>
